@@ -1,5 +1,6 @@
 from fastapi import FastAPI
 from pydantic import BaseModel
+from pyctuator.pyctuator import Pyctuator
 import boto3
 
 class Inputs(BaseModel):
@@ -30,3 +31,11 @@ async def contratar_seguro(inputs: Inputs):
     #sns_client.publish(TopicArn=sns_topic_arn, Message=sns_message)
 
     return {"message": "Contratação de seguro realizada com sucesso"}
+
+Pyctuator(
+    app,
+    "FastAPI Pyctuator",
+    app_url="http://host.docker.internal:8000",
+    pyctuator_endpoint_url="http://host.docker.internal:8000/pyctuator",
+    registration_url="http://localhost:8080/instances"
+)

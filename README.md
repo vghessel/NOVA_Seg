@@ -1,6 +1,14 @@
 # NOVA - Contratação de Seguro
-### Python, Fastapi, Localstack, SQS e SNS.
+### Python, Fastapi, Pyctuator, Localstack, SQS e SNS.
 <img src="img/SQS.png" />
+
+#### Subir container Pyctuator:
+docker run --rm -p 8080:8080 --add-host=host.docker.internal:host-gateway michayaak/spring-boot-admin:2.2.3-1
+<img src="img/pyctuator.png" />
+<img src="img/pyactuator_docker.png" />
+
+#### Exemplo de body (POST):
+<img src="img/postman.png" />
 
 #### Principais comandos AWS-CLI:
 1. aws --endpoint-url=http://localhost:4566 sqs create-queue --queue-name myqueue
